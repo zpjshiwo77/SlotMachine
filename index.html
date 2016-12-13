@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>老虎机插件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+	* {margin:0;padding:0; border:0;font-family: "微软雅黑"}
+	html,body{ width:100%; height:100%;}
+	ol,ul,li {list-style-type:none; display:block;}
+	div.main{position: fixed; top:50%; left: 50%; -webkit-transform: translate(-50%,-50%); width: 340px;height: 200px; border:2px solid #aaa;}
+	div.main .slotView{width: 100px;height: 180px;float: left;margin: 10px 0 0 10px;overflow: hidden;}
+	div.main .slotView ul{width: 100%;height: auto;}
+	div.main .slotView ul li{width: 100%;height: 100px;text-align: center;font-size: 40px;font-weight: bold;color: #666;line-height: 100px;}
+	div.main .slotView ul li:nth-child(1),div.main .slotView ul li:nth-child(4){background:rgb(235, 110, 98); }
+	div.main .slotView ul li:nth-child(2),div.main .slotView ul li:nth-child(5){background:rgb(249, 163, 108); }
+	div.main .slotView ul li:nth-child(3),div.main .slotView ul li:nth-child(6){background:rgb(129, 210, 238); }
+	div.btns{position: fixed; top:50%; left: 50%; width: 250px;height: 70px;-webkit-transform: translate(-50%,170%);}
+	div.btns .btn{float: left; width: 100px;height: 50px;border: 2px solid #faa41b; margin:0 10px;font-size: 35px;font-weight: bold;color: #666;text-align: center;line-height: 50px;cursor: pointer;}
+</style>
+</head>
+<body>
+	<div class="main">
+		<div class="slotView">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		
+		<div class="slotView">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+
+		<div class="slotView">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="btns">
+		<div class="btn btnStart">开始</div>
+		<div class="btn btnEnd">结束</div>
+	</div>
+	
+
+<script src="js/base/jquery.js"></script>
+<script src="js/base/transit.js"></script>
+<script src="js/solt/soltMachine.js"></script>
+<script>
+$(document).ready(function(){
+	var slotBox = $(".main");
+	var islot = new slot();
+
+	islot.init(slotBox);
+
+	$(".btnStart").on("click",function(){
+		islot.slotBegin(20);
+	});
+
+	$(".btnEnd").on("click",function(){
+		var num = Math.floor(Math.random()*4);
+		islot.slotEnd(num,function(){
+			if(num != 0){
+				alert("恭喜你！中奖了");
+			}
+			else{
+				alert("不要气馁，再来一次~");
+				islot.resetSlot();
+			}
+		});
+	});
+});//end ready
+</script>
+</body>
+</html>
