@@ -41,7 +41,7 @@ var slot = function(){
 		_self.start = true;
 		_self.endNum = 0;
 		viewBox.children().each(function(index, el) {
-			$(this).children('ul').css({y: - initH});
+			$(this).children('ul').css({'transform': 'translate(0,' + (-initH) + 'px)'});
 		});
 
 		for (var i = 0; i < ItemNum; i++) {
@@ -80,7 +80,7 @@ var slot = function(){
 
 		ItemNum = itemBox.length;
 		initH = ItemH - (viewH - ItemH) / 2;
-		moveBox.css({y: - initH});
+		moveBox.css({'transform': 'translate(0,' + (-initH) + 'px)'});
 		moveDst.push(initH);
 		_self.stop.push(false);
 	}//end func
@@ -95,10 +95,10 @@ var slot = function(){
 		function _moving(){
 			var thisSpeed = (viewH / 180) * (parseInt(count/10) + 1);
 			thisSpeed = thisSpeed >= _self.speed ? _self.speed : thisSpeed;
-			console.log(thisSpeed);
 			moveDst[code] = moveDst[code] + thisSpeed;
 			moveDst[code] = moveDst[code] >= ItemH * ItemNum + initH ? initH : moveDst[code];
-			moveBox.css({y: -moveDst[code]});
+			// moveBox.css({y: -moveDst[code]});
+			moveBox.css({'transform': 'translate(0,' + (-moveDst[code]) + 'px)'});
 			if(!_self.stop[code]){
 				requestAnimationFrame(_moving);
 			}
@@ -119,7 +119,8 @@ var slot = function(){
 			thisSpeed = thisSpeed <= 2 ? 2 : thisSpeed;
 			moveDst[code] = moveDst[code] + thisSpeed;
 			moveDst[code] = moveDst[code] >= ItemH * ItemNum + initH ? initH : moveDst[code];
-			moveBox.css({y: - moveDst[code]});
+			// moveBox.css({y: - moveDst[code]});
+			moveBox.css({'transform': 'translate(0,' + (-moveDst[code]) + 'px)'});
 			if(parseInt(moveDst[code]) != parseInt(endDistance) || thisSpeed > 2){
 				requestAnimationFrame(_moving);
 			}
