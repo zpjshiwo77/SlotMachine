@@ -40,12 +40,12 @@ var slot = function(){
 	_self.resetSlot = function(){
 		_self.start = true;
 		_self.endNum = 0;
-		viewBox.children().each(function(index, el) {
-			$(this).children('ul').css({'transform': 'translate(0,' + (-initH) + 'px)'});
-		});
+		// viewBox.children().each(function(index, el) {
+		// 	$(this).children('ul').css({'transform': 'translate(0,' + (-initH) + 'px)'});
+		// });
 
 		for (var i = 0; i < ItemNum; i++) {
-			moveDst[i] = initH;
+			// moveDst[i] = initH;
 			_self.stop[i] = false;
 		};
 	}//end func
