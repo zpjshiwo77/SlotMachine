@@ -126,7 +126,7 @@ var slot = function(){
 			}
 			else{
 				_self.endNum++;
-				if(_self.endNum == ItemNum && callback){
+				if(_self.endNum == 3 && callback){
 					setTimeout(function(){callback();},50);
 				}
 			}

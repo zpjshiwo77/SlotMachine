@@ -11,9 +11,11 @@
 	div.main .slotView{width: 100px;height: 180px;float: left;margin: 10px 0 0 10px;overflow: hidden;}
 	div.main .slotView ul{width: 100%;height: auto;}
 	div.main .slotView ul li{width: 100%;height: 100px;text-align: center;font-size: 40px;font-weight: bold;color: #666;line-height: 100px;}
-	div.main .slotView ul li:nth-child(1),div.main .slotView ul li:nth-child(4){background:rgb(235, 110, 98); }
-	div.main .slotView ul li:nth-child(2),div.main .slotView ul li:nth-child(5){background:rgb(249, 163, 108); }
-	div.main .slotView ul li:nth-child(3),div.main .slotView ul li:nth-child(6){background:rgb(129, 210, 238); }
+	div.main .slotView ul li:nth-child(1),div.main .slotView ul li:nth-child(6){background:rgb(235, 110, 98); }
+	div.main .slotView ul li:nth-child(2),div.main .slotView ul li:nth-child(7){background:rgb(249, 163, 108); }
+	div.main .slotView ul li:nth-child(3),div.main .slotView ul li:nth-child(8){background:rgb(129, 210, 238); }
+	div.main .slotView ul li:nth-child(4),div.main .slotView ul li:nth-child(9){background:rgb(178, 229, 222); }
+	div.main .slotView ul li:nth-child(5),div.main .slotView ul li:nth-child(10){background:rgb(130, 148, 160); }
 	div.btns{position: fixed; top:50%; left: 50%; width: 250px;height: 70px;-webkit-transform: translate(-50%,170%);}
 	div.btns .btn{float: left; width: 100px;height: 50px;border: 2px solid #faa41b; margin:0 10px;font-size: 35px;font-weight: bold;color: #666;text-align: center;line-height: 50px;cursor: pointer;}
 </style>
@@ -25,6 +27,8 @@
 				<li>1</li>
 				<li>2</li>
 				<li>3</li>
+				<li>4</li>
+				<li>5</li>
 			</ul>
 		</div>
 		
@@ -33,6 +37,8 @@
 				<li>1</li>
 				<li>2</li>
 				<li>3</li>
+				<li>4</li>
+				<li>5</li>
 			</ul>
 		</div>
 
@@ -41,6 +47,8 @@
 				<li>1</li>
 				<li>2</li>
 				<li>3</li>
+				<li>4</li>
+				<li>5</li>
 			</ul>
 		</div>
 	</div>
@@ -65,7 +73,8 @@ $(document).ready(function(){
 	});
 
 	$(".btnEnd").on("click",function(){
-		var num = Math.floor(Math.random()*4);
+		var num = Math.floor(Math.random()*6);
+		console.log(num);
 		islot.slotEnd(num,function(){
 			if(num != 0){
 				alert("恭喜你！中奖了");
