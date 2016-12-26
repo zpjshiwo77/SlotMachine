@@ -121,14 +121,14 @@ var slot = function(){
 			moveDst[code] = moveDst[code] >= ItemH * ItemNum + initH ? initH : moveDst[code];
 			// moveBox.css({y: - moveDst[code]});
 			moveBox.css({'transform': 'translate(0,' + (-moveDst[code]) + 'px)'});
-			if(parseInt(moveDst[code]) != parseInt(endDistance) || thisSpeed > 2){
-				requestAnimationFrame(_moving);
-			}
-			else{
+			if((parseInt(moveDst[code]) == parseInt(endDistance) || parseInt(moveDst[code]) + 1 == parseInt(endDistance) || parseInt(moveDst[code]) - 1 == parseInt(endDistance)) && thisSpeed <= 2){
 				_self.endNum++;
 				if(_self.endNum == 3 && callback){
 					setTimeout(function(){callback();},50);
 				}
+			}
+			else{
+				requestAnimationFrame(_moving);
 			}
 			count++;
 		}
