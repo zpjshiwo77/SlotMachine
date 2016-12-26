@@ -62,6 +62,22 @@
 <script src="js/base/jquery.js"></script>
 <script src="js/solt/soltMachine.js"></script>
 <script>
+/* 方法说明
+ *
+ * .init(ele)  初始化插件
+ 	 * 参数：
+ 	 * ele: 老虎机插件的jquery元素
+ * .slotBegin(speed)  老虎机转动开始的方法
+ 	 * 参数：
+ 	 * speed: 老虎机最大移动速度，范围 1 - 无穷，建议20左右效果比较好
+ * .slotEnd(award,callback)  老虎机停止转动发方法
+ 	 * 参数：
+ 	 * award: 中的奖，0代表未中奖，1代表中第一个元素的奖品（依次推类，不能超过元素总数）
+ 	 * callback: 动画停止后的回调函数
+ * .resetSlot()  重置老虎机的方法
+ *	 * 每进行过一次老虎机，需要接着转动，需要执行此方法
+ *
+ */
 $(document).ready(function(){
 	var slotBox = $(".main");
 	var islot = new slot();
